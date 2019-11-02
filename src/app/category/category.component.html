@@ -1,0 +1,112 @@
+<div class="topbar">
+<img src="assets/logo.png" height="80%">
+</div>
+
+<table>
+  <tbody>
+          <tr *ngFor="let category of categoryResults">
+            <td>
+              {{category.title}}
+              </td>
+          </tr>
+        </tbody>
+        </table>
+
+        <mat-grid-list cols = "5" rowHeight="125" >
+           <mat-grid-tile
+           [colspan] = "1"
+           [rowspan] = "1"
+           [style.background] = "lightblue">
+
+          <div >
+            <p style="font-color: rgb(51, 3, 0); text-align: center;">Difficulty</p>
+               <mat-slider
+                  class="example-margin"
+                  [disabled]="disabled"
+                  [invert]="invert"
+                  [max]="max"
+                  [min]="min"
+                  [step]="step"
+                  [thumbLabel]="thumbLabel"
+                  [tickInterval]="tickInterval"
+                  [(ngModel)]="difficultLevel"
+                  [vertical]="vertical">
+            </mat-slider>
+            </div>
+
+           </mat-grid-tile>
+
+           <mat-grid-tile
+           class="results"
+           [colspan] = "4"
+           [rowspan] = "5">
+
+<table style="margin:auto;">
+  <tbody >
+           <tr *ngFor="let row of clueGrid" >
+              <ng-container *ngFor="let item of row?.items" >
+                <td style="width: 20%;" >
+                  <mat-card (click) = "toggleView(item)" class="example-card">
+                      <mat-card-header >
+                        <mat-card-subtitle class ="subtitle ">{{item.category.title}}</mat-card-subtitle>
+                        <mat-card-title style="color:white;">{{item.question}}</mat-card-title>
+
+                      </mat-card-header>
+                      <mat-card-content style="text-align:center; color: rgb(255, 204, 0); font-style: italic; font-size: 20px;" *ngIf="item.hidden">
+                        What is {{item.answer}}
+                      </mat-card-content>
+                    </mat-card>
+
+                </td>
+              </ng-container>
+          </tr>
+  </tbody>
+  </table>
+
+           </mat-grid-tile>
+
+           <mat-grid-tile
+           [colspan] = "1"
+           [rowspan] = "1">
+
+           <mat-form-field>
+             <input matInput   [(ngModel)]="minDate" [matDatepicker]="minPicker" placeholder="Minimum Air Date">
+             <mat-datepicker-toggle matSuffix [for]="minPicker"></mat-datepicker-toggle>
+             <mat-datepicker #minPicker></mat-datepicker>
+           </mat-form-field>
+
+           </mat-grid-tile>
+
+
+           <mat-grid-tile
+             [colspan] = "1"
+             [rowspan] = "1">
+             <mat-form-field>
+               <input matInput   [(ngModel)]="maxDate" [matDatepicker]="maxPicker" placeholder="Maximum Air Date">
+               <mat-datepicker-toggle matSuffix [for]="maxPicker"></mat-datepicker-toggle>
+               <mat-datepicker #maxPicker ></mat-datepicker>
+             </mat-form-field>
+             </mat-grid-tile>
+
+
+
+             <mat-grid-tile
+             [colspan] = "1"
+             [rowspan] = "1">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Category"  [(ngModel)]="selectedCategory" aria-label="Category" [matAutocomplete]="auto" [formControl]="categoryCtrl">
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let category of filteredCategories | async" [value]="category.id">  
+                      <small>{{category.title}}</small>
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+             </mat-grid-tile>
+
+             <mat-grid-tile
+               [colspan] = "1"
+               [rowspan] = "1">
+               <button mat-raised-button color="rgb(6,12,233)" (click)="fetchClues()">Search</button>
+            </mat-grid-tile>
+
+        </mat-grid-list>

@@ -1,0 +1,46 @@
+
+.results {
+   background-color: white;
+   overflow: auto;
+}
+
+.example-card {
+  height: 200px;
+  overflow: auto;
+  background-color: rgb(6,12,233);
+}
+
+.example-margin {
+    color: rgb(6,12,233);
+}
+
+
+mat-grid-tile  {
+  background: lightblue;
+  overflow: auto;
+}
+
+.subtitle {
+  color: white;
+  text-transform: capitalize;
+}
+
+.topbar{
+  padding-top: 1%;
+  text-align: center;
+  height: 9%
+}
+
+.open-close-container {
+  border: 1px solid #dddddd;
+  margin-top: 1em;
+  padding: 20px 20px 0px 20px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+td {
+  height: 30%;
+}
