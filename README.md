@@ -1,6 +1,8 @@
 See Site At:
 https://jamarcelin.github.io/jeopardy/
 
+Application distributable is on gh-page branch and source code is on master.
+
 API: 
 jservice.io
 
