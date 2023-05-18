@@ -1,3 +1,13 @@
+See Site At:
+https://jamarcelin.github.io/jeopardy/
+
+API: 
+jservice.io
+
+Deployed Following:
+https://github.com/gitname/react-gh-pages
+
+------------REACT DEFAULT README--------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
