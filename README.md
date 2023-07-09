@@ -20,3 +20,7 @@ This web app utilizes the `jservice.io` API to fetch random Jeopardy trivia ques
 The deployment of this web app follows the guidelines outlined in the [react-gh-pages](https://github.com/gitname/react-gh-pages) repository.
 
 Feel free to explore and enjoy playing Jeopardy trivia!
+
+## Screenshots
+
+![Screenshot 1](screenshots/jeopardy.png)
